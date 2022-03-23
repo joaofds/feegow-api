@@ -23,4 +23,9 @@ Route::prefix('v1')->group(function () {
     Route::prefix('specialties')->group(function () {
         Route::get('list', 'App\Http\Controllers\SpecialtyController@list');
     });
+
+    // Patient
+    Route::prefix('patient')->group(function () {
+        Route::get('list-sources', 'App\Http\Controllers\PatientController@listSources');
+    });
 });
