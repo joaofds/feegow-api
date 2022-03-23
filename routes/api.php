@@ -3,17 +3,24 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+// Success... API Working...
+Route::any('/v1', function () {
+    return response()->json(
+        [
+            'message' => 'api work fine... :)'
+        ]
+    );
+});
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// General API Routes
+Route::prefix('v1')->group(function () {
+    // Professionals
+    Route::prefix('professional')->group(function () {
+        Route::get('/list', 'App\Http\Controllers\ProfessionalController@list');
+    });
+
+    // Specialities
+    Route::prefix('specialties')->group(function () {
+        Route::get('list', 'App\Http\Controllers\SpecialtyController@list');
+    });
 });
