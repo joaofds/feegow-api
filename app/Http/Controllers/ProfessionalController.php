@@ -13,9 +13,7 @@ class ProfessionalController extends Controller
 
     public function list(Request $request)
     {
-        dd($request->all());
         $id = $request->query('id');
-        dd($id);
         $endPoint = '/professional/list';
 
         $params['id'] = $id;
@@ -26,11 +24,9 @@ class ProfessionalController extends Controller
 
         $professionals = [];
         foreach ($dataArray['content'] as $professional) {
-            //dd($key, $professional->especialidades);
             foreach ($professional->especialidades as $key => $value) {
                 foreach ($value as $key => $item) {
-                    //dd($item);
-                    if ($key === 'especialidade_id' && $item === 212) {
+                    if ($key == 'especialidade_id' && $item == $id) {
                         $professionals[] = $professional;
                     }
                 }
