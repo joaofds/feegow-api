@@ -11,6 +11,12 @@ class ProfessionalController extends Controller
         $this->feeGowApi = $feeGow;
     }
 
+    /**
+     * Busca todos os profissionais na API e filtra por especialidade.
+     *
+     * @param Request $request
+     * @return array
+     */
     public function list(Request $request)
     {
         $id = $request->query('id');

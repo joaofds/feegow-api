@@ -11,6 +11,11 @@ class SpecialtyController extends Controller
         $this->feeGowApi = $feeGow;
     }
 
+    /**
+     * Busca todas as especialidades na API.
+     *
+     * @return Array
+     */
     public function list()
     {
         $endPoint = '/specialties/list';

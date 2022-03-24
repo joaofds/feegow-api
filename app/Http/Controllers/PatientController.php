@@ -11,12 +11,17 @@ class PatientController extends Controller
         $this->feeGowApi = $feeGow;
     }
 
+    /**
+     * Busca todas as origens de "como conheceu?".
+     *
+     * @return Array
+     */
     public function listSources()
     {
         $endPoint = '/patient/list-sources';
         $params['endpoint'] = $endPoint;
 
-        $specialties = $this->feeGowApi->getResource($params);
-        return response($specialties);
+        $sourceList = $this->feeGowApi->getResource($params);
+        return response($sourceList);
     }
 }

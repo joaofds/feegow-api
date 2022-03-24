@@ -15,6 +15,13 @@ class FeegowApiService
         $this->apiHost = env('FEEGOW_API_HOST');
     }
 
+    /**
+     * Metodo dinamico queu faz consultas na API feegow
+     * https://api.feegow.com.br/api/documentation
+     *
+     * @param array $params
+     * @return array
+     */
     public function getResource(array $params)
     {
         $endPoint = $params['endpoint'];
