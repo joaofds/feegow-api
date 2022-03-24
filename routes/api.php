@@ -16,16 +16,16 @@ Route::any('/v1', function () {
 Route::prefix('v1')->group(function () {
     // Professionals
     Route::prefix('professional')->group(function () {
-        Route::get('/list', 'App\Http\Controllers\ProfessionalController@list');
+        Route::post('/list', 'App\Http\Controllers\ProfessionalController@list');
     });
 
     // Specialities
     Route::prefix('specialties')->group(function () {
-        Route::get('list', 'App\Http\Controllers\SpecialtyController@list');
+        Route::post('list', 'App\Http\Controllers\SpecialtyController@list');
     });
 
     // Patient
     Route::prefix('patient')->group(function () {
-        Route::get('list-sources', 'App\Http\Controllers\PatientController@listSources');
+        Route::post('list-sources', 'App\Http\Controllers\PatientController@listSources');
     });
 });
