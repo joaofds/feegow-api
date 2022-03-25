@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Carbon;
 
 class CreatePatientHasAppointmentTable extends Migration
 {
@@ -31,7 +30,7 @@ class CreatePatientHasAppointmentTable extends Migration
             ->nullable(false);
 
             $table->date('birthdate')->nullable(false);
-            $table->datetime('date_time')->default(Carbon::now());
+            $table->timestamp('date_time')->default(\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
